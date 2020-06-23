@@ -1,8 +1,0 @@
-com/iptiq/loadbalancer/RandomLoadBalancer.class
-com/iptiq/config/BasicModule.class
-com/iptiq/exceptions/NoAvailableProvidersException.class
-com/iptiq/LoadBalancerApp.class
-com/iptiq/loadbalancer/LoadBalancer.class
-com/iptiq/exceptions/MaxNumberOfProvidersReachedException.class
-com/iptiq/loadbalancer/RoundRobinLoadBalancer.class
-com/iptiq/provider/Provider.class

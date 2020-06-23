@@ -1,8 +1,0 @@
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/exceptions/NoAvailableProvidersException.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/LoadBalancerApp.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/loadbalancer/RandomLoadBalancer.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/exceptions/MaxNumberOfProvidersReachedException.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/config/BasicModule.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/loadbalancer/RoundRobinLoadBalancer.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/loadbalancer/LoadBalancer.java
-/Users/hanaaharoni/iptiqLoadbalancer/src/main/java/com/iptiq/provider/Provider.java
