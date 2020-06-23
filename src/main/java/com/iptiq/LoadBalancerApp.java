@@ -8,6 +8,8 @@ import com.iptiq.exceptions.MaxNumberOfProvidersReachedException;
 import com.iptiq.exceptions.NoAvailableProvidersException;
 import com.iptiq.loadbalancer.LoadBalancer;
 import com.iptiq.provider.Provider;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -17,6 +19,7 @@ import java.util.concurrent.RejectedExecutionException;
 
 public class LoadBalancerApp {
 
+	private final static Logger logger = LogManager.getLogger(LoadBalancerApp.class);
 	@Inject
 	private static LoadBalancer loadBalancer;
 
@@ -26,9 +29,9 @@ public class LoadBalancerApp {
 
 		for (int i = 0; i < 5; i++)
 			try {
-				loadBalancer.registerProvider(new Provider("Provider" + i, 5));
+				loadBalancer.registerProvider(new Provider());
 			} catch (MaxNumberOfProvidersReachedException e) {
-				System.out.println(e.getLocalizedMessage());
+				logger.info(e.getLocalizedMessage());
 			}
 
 		ConcurrentLinkedQueue<Future<String>> futures = new ConcurrentLinkedQueue<>();
@@ -36,13 +39,11 @@ public class LoadBalancerApp {
 		while (true) {
 			Thread.sleep(100);
 			try {
-				System.out.println("Getting a new request!");
+				logger.info("Getting a new request!");
 				Future<String> s = loadBalancer.get();
 				futures.add(s);
-			} catch (RejectedExecutionException ex) {
-				System.out.println(ex.getMessage());
-			} catch (NoAvailableProvidersException e) {
-				System.out.println(e.getMessage());
+			} catch (RejectedExecutionException | NoAvailableProvidersException ex) {
+				logger.warn(ex.getMessage());
 			}
 			checkFutures(futures);
 		}
@@ -54,7 +55,7 @@ public class LoadBalancerApp {
 		while (it.hasNext()) {
 			element = it.next();
 			if (element.isDone()) {
-				System.out.println("Routed to: " + element.get());
+				logger.info(String.format("Routed to: %s", element.get()));
 				it.remove();
 			}
 		}

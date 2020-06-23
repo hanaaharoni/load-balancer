@@ -11,11 +11,14 @@ import static org.mockito.Mockito.spy;
 public class DataProviderClass {
 
 	@DataProvider(name = "RoundRobinLoadBalancerInit")
-	public Object[][] initializeRoundRobin() throws MaxNumberOfProvidersReachedException {
+	public Object[][] initializeRoundRobin() throws MaxNumberOfProvidersReachedException, InterruptedException {
 		LoadBalancer lb = spy(new RoundRobinLoadBalancer());
 		Mockito.doNothing().when(lb).heartBeatCheck();
 		for (int i = 0; i < 5; i++) {
-			lb.registerProvider(new Provider("Provider" + i, 3));
+			Provider p = Mockito.mock(Provider.class);
+			Mockito.when(p.get()).thenReturn("Provider" + i);
+			Mockito.when(p.getName()).thenReturn("Provider" + i);
+			lb.registerProvider(p);
 		}
 		return new Object[][]{{lb}};
 	}
@@ -25,9 +28,6 @@ public class DataProviderClass {
 		LoadBalancer lb = new RandomLoadBalancer();
 		lb = spy(lb);
 		doNothing().when(lb).heartBeatCheck();
-		for (int i = 0; i < 5; i++) {
-			lb.registerProvider(new Provider("Provider" + i, 3));
-		}
 		return new Object[][]{{lb}};
 	}
 }

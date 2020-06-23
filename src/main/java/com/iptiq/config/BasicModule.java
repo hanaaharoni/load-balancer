@@ -12,4 +12,9 @@ public class BasicModule extends AbstractModule {
 	protected void configure() {
 		bind(LoadBalancer.class).to(RandomLoadBalancer.class);
 	}
+
+//	@Override
+//	protected void configure() {
+//		bind(LoadBalancer.class).to(RoundRobinLoadBalancer.class);
+//	}
 }

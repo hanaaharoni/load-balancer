@@ -17,12 +17,12 @@ import static org.mockito.Mockito.mock;
 public class LoadBalancerTest {
 
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
 	public void shouldReturnActiveProvidersOnly(LoadBalancer lb) {
 		Assert.assertEquals(lb.getActiveProviders().size(), 5);
 	}
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
 	public void shouldIncludeProvider(LoadBalancer lb) throws MaxNumberOfProvidersReachedException {
 		Provider p = new Provider();
 		lb.registerProvider(p);
@@ -30,28 +30,28 @@ public class LoadBalancerTest {
 		Assert.assertTrue(lb.getActiveProviders().contains(p));
 	}
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
 	public void shouldExcludeProvider(LoadBalancer lb) {
 		Provider p = lb.getActiveProviders().get(0);
 		lb.excludeProvider(p);
 		Assert.assertFalse(lb.getActiveProviders().contains(p));
 	}
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
 	public void shouldRegisterNewProvider(LoadBalancer lb) throws MaxNumberOfProvidersReachedException {
 		Provider p = new Provider("testProvider", 3);
 		lb.registerProvider(p);
 		Assert.assertTrue(lb.getActiveProviders().contains(p));
 	}
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class, expectedExceptions = MaxNumberOfProvidersReachedException.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class, expectedExceptions = MaxNumberOfProvidersReachedException.class)
 	public void shouldThrowMaxNumberOfProvidersReachedException(LoadBalancer lb) throws MaxNumberOfProvidersReachedException {
 		for (int i = 0; i < 10; i++) {
 			lb.registerProvider(new Provider());
 		}
 	}
 
-	@Test(dataProvider = "RandomBalancerInit", dataProviderClass = DataProviderClass.class)
+	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
 	public void shouldNotThrowNoAvailableProvidersException(LoadBalancer lb) throws NoAvailableProvidersException, InterruptedException {
 		int capacity = lb.getActiveProviders().size() * 3;
 		List<Future<String>> futureTargets = new ArrayList<>();

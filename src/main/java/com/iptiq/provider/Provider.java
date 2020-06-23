@@ -7,10 +7,10 @@ public class Provider {
 
 	String id;
 	int requestCapacity;
+	final int sleepTime = 100;
 
 	//creates providers with details on initialisation
 	public Provider() {
-		;
 		this.id = UUID.randomUUID().toString();
 		this.requestCapacity = 10;
 	}
@@ -22,7 +22,7 @@ public class Provider {
 
 	public String get() throws InterruptedException {
 		//add some delay time for the request
-		Thread.sleep(100);
+		Thread.sleep(sleepTime);
 		return this.id;
 	}
 

@@ -3,6 +3,8 @@ package com.iptiq.loadbalancer;
 import com.iptiq.exceptions.MaxNumberOfProvidersReachedException;
 import com.iptiq.exceptions.NoAvailableProvidersException;
 import com.iptiq.provider.Provider;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,12 +12,12 @@ import java.util.Map;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
-
 public abstract class LoadBalancer {
 
 	private static final int MAX_PROVIDERS = 10;
 	private static final int INITIAL_DELAY = 1;
 	private static final int INTERVAL = 120;
+	private final static Logger logger = LogManager.getLogger(LoadBalancer.class);
 	private final BlockingQueue queue;
 	private Map<Provider, Boolean> providersMap;
 	private Map<Provider, Integer> unresponsiveProviders;
@@ -52,8 +54,8 @@ public abstract class LoadBalancer {
 	}
 
 	protected void heartBeatCheck() {
-		System.out.println("=======================================");
-		System.out.println("Starting heart-beat check");
+		logger.info("=======================================");
+		logger.info("Starting heart-beat check");
 		for (Map.Entry<Provider, Boolean> p : providersMap.entrySet()) {
 
 			Provider provider = p.getKey();
@@ -63,28 +65,28 @@ public abstract class LoadBalancer {
 			if (check) {
 				//if the provider is active now but wasn't previously increase the counter
 				if (isActive.equals(Boolean.FALSE)) {
-					System.out.println("[" + provider.getName() + "] is responsive again!");
+					logger.info(String.format("[%s] is responsive again!", provider.getName()));
 					unresponsiveProviders.put(provider, unresponsiveProviders.getOrDefault(provider, 0) + 1);
 					if (unresponsiveProviders.get(provider) >= 2) {
 						//activate it back and remove it from dead providers
 						includeProvider(provider);
 						unresponsiveProviders.remove(provider);
-						System.out.println("[" + provider.getName() + "] is working again, adding it back");
+						logger.info(String.format("[%s] is working again, adding it back", provider.getName()));
 					}
 				}
 			} else if (isActive) {  //if it's not active in this iteration but included.
-				System.out.println("[" + provider.getName() + "] is not responsive, will be excluded");
+				logger.info(String.format("[%s] is not responsive, will be excluded", provider.getName()));
 				excludeProvider(provider);
 				unresponsiveProviders.put(provider, 0);
 			}
 		}
 		int capacity = checkCapacity();
-		System.out.println("Updating loadbalancer capacity to: [" + capacity + "]");
+		logger.info(String.format("Updating loadbalancer capacity to: [%d]", capacity));
 
 		//update load balancer capacity according to available providers
 		this.threadPool.setCorePoolSize(capacity);
-		System.out.println("End of heart-beat check");
-		System.out.println("=======================================");
+		logger.info("End of heart-beat check");
+		logger.info("=======================================");
 
 	}
 

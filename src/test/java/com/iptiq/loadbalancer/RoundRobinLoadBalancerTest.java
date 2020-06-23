@@ -11,9 +11,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.spy;
-
 public class RoundRobinLoadBalancerTest {
 
 	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class)
@@ -40,6 +37,7 @@ public class RoundRobinLoadBalancerTest {
 
 	@Test(dataProvider = "RoundRobinLoadBalancerInit", dataProviderClass = DataProviderClass.class, expectedExceptions = NoAvailableProvidersException.class)
 	public void shouldThrowNoAvailableProvidersException(LoadBalancer lb) throws NoAvailableProvidersException, InterruptedException {
+
 		for (Provider p : lb.getActiveProviders())
 			lb.excludeProvider(p);
 		lb.get();
