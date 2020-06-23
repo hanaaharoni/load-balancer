@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="608" started-at="2020-06-23T02:44:22 CEST" finished-at="2020-06-23T02:44:23 CEST">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="608" started-at="2020-06-23T02:44:22 CEST" finished-at="2020-06-23T02:44:23 CEST">
+      <class name="com.iptiq.loadbalancer.RoundRobinLoadBalancerTest">
+        <test-method status="PASS" signature="shouldGetRoundRobinProvider(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.RoundRobinLoadBalancerTest@91161c7]" name="shouldGetRoundRobinProvider" duration-ms="105" started-at="2020-06-23T02:44:23 CEST" data-provider="RoundRobinLoadBalancerInit" finished-at="2020-06-23T02:44:23 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RoundRobinLoadBalancer$MockitoMock$1127852401@68c9d179]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldGetRoundRobinProvider -->
+        <test-method status="PASS" signature="shouldThrowNoAvailableProvidersException(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.RoundRobinLoadBalancerTest@91161c7]" name="shouldThrowNoAvailableProvidersException" duration-ms="1" started-at="2020-06-23T02:44:23 CEST" data-provider="RoundRobinLoadBalancerInit" finished-at="2020-06-23T02:44:23 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RoundRobinLoadBalancer$MockitoMock$1127852401@55de24cc]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.iptiq.exceptions.NoAvailableProvidersException">
+            <message>
+              <![CDATA[Maximum number of requests for available providers was reached]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.iptiq.exceptions.NoAvailableProvidersException: Maximum number of requests for available providers was reached
+at com.iptiq.loadbalancer.RoundRobinLoadBalancer.get(RoundRobinLoadBalancer.java:23)
+at com.iptiq.loadbalancer.RoundRobinLoadBalancerTest.shouldThrowNoAvailableProvidersException(RoundRobinLoadBalancerTest.java:45)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.iptiq.exceptions.NoAvailableProvidersException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldThrowNoAvailableProvidersException -->
+      </class> <!-- com.iptiq.loadbalancer.RoundRobinLoadBalancerTest -->
+      <class name="com.iptiq.loadbalancer.LoadBalancerTest">
+        <test-method status="PASS" signature="shouldExcludeProvider(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldExcludeProvider" duration-ms="4" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@4b8d604b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldExcludeProvider -->
+        <test-method status="PASS" signature="shouldIncludeProvider(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldIncludeProvider" duration-ms="0" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@d554c5f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldIncludeProvider -->
+        <test-method status="PASS" signature="shouldNotThrowNoAvailableProvidersException(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldNotThrowNoAvailableProvidersException" duration-ms="4" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@2dfaea86]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldNotThrowNoAvailableProvidersException -->
+        <test-method status="PASS" signature="shouldRegisterNewProvider(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldRegisterNewProvider" duration-ms="0" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@15888343]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldRegisterNewProvider -->
+        <test-method status="PASS" signature="shouldReturnActiveProvidersOnly(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldReturnActiveProvidersOnly" duration-ms="0" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@33ecda92]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldReturnActiveProvidersOnly -->
+        <test-method status="PASS" signature="shouldThrowMaxNumberOfProvidersReachedException(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.LoadBalancerTest@5e3a8624]" name="shouldThrowMaxNumberOfProvidersReachedException" duration-ms="1" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@14fc5f04]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.iptiq.exceptions.MaxNumberOfProvidersReachedException">
+            <message>
+              <![CDATA[Maximum number of providers was reached for this load balancer]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.iptiq.exceptions.MaxNumberOfProvidersReachedException: Maximum number of providers was reached for this load balancer
+at com.iptiq.loadbalancer.LoadBalancer.registerProvider(LoadBalancer.java:107)
+at com.iptiq.loadbalancer.LoadBalancerTest.shouldThrowMaxNumberOfProvidersReachedException(LoadBalancerTest.java:50)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.iptiq.exceptions.MaxNumberOfProvidersReachedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldThrowMaxNumberOfProvidersReachedException -->
+      </class> <!-- com.iptiq.loadbalancer.LoadBalancerTest -->
+      <class name="com.iptiq.loadbalancer.RandomLoadBalancerTest">
+        <test-method status="PASS" signature="shouldGetRandomProvider(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.RandomLoadBalancerTest@5c3bd550]" name="shouldGetRandomProvider" duration-ms="105" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@5e7cd6cc]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldGetRandomProvider -->
+        <test-method status="PASS" signature="shouldThrowNoAvailableProvidersException(com.iptiq.loadbalancer.LoadBalancer)[pri:0, instance:com.iptiq.loadbalancer.RandomLoadBalancerTest@5c3bd550]" name="shouldThrowNoAvailableProvidersException" duration-ms="1" started-at="2020-06-23T02:44:22 CEST" data-provider="RandomBalancerInit" finished-at="2020-06-23T02:44:22 CEST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.iptiq.loadbalancer.RandomLoadBalancer$MockitoMock$677417851@1c742ed4]]>
+              </value>
+            </param>
+          </params>
+          <exception class="com.iptiq.exceptions.NoAvailableProvidersException">
+            <message>
+              <![CDATA[Maximum number of requests for available providers was reached]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.iptiq.exceptions.NoAvailableProvidersException: Maximum number of requests for available providers was reached
+at com.iptiq.loadbalancer.RandomLoadBalancer.get(RandomLoadBalancer.java:23)
+at com.iptiq.loadbalancer.RandomLoadBalancerTest.shouldThrowNoAvailableProvidersException(RandomLoadBalancerTest.java:23)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.iptiq.exceptions.NoAvailableProvidersException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldThrowNoAvailableProvidersException -->
+      </class> <!-- com.iptiq.loadbalancer.RandomLoadBalancerTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
